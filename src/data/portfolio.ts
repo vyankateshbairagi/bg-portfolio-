@@ -62,6 +62,7 @@ export interface PortfolioData {
   personal: {
     name: string;
     monogram: string;
+    avatarUrl: string;
     role: string;
     subRole: string;
     statusBadge: string;
@@ -93,6 +94,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
   personal: {
     name: "Bhushan Gavhane",
     monogram: "BG",
+    avatarUrl: "/bhushan-profile.jpg",
     role: "Full-Stack Developer",
     subRole: "MERN Stack Specialist",
     statusBadge: "COMPUTER ENGINEERING GRADUATE",

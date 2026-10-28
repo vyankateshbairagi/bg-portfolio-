@@ -81,31 +81,43 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           {/* Printable Resume Document */}
           <div className="p-6 sm:p-8 overflow-y-auto space-y-6 text-slate-800 dark:text-slate-200 bg-white dark:bg-[#07090e] font-sans print:p-0 print:bg-white print:text-black">
             {/* Header */}
-            <div className="border-b border-slate-200 dark:border-slate-800 pb-5">
-              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-1">
-                {personal.name}
-              </h1>
-              <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-                {personal.role} | {personal.subRole}
-              </p>
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-5 flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex-1">
+                <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-1">
+                  {personal.name}
+                </h1>
+                <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                  {personal.role} | {personal.subRole}
+                </p>
 
-              <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500 dark:text-slate-400 font-mono">
-                <span className="flex items-center gap-1">
-                  <Phone size={12} className="text-blue-600 dark:text-blue-400" /> {personal.phone}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Mail size={12} className="text-blue-600 dark:text-blue-400" /> {personal.email}
-                </span>
-                <span className="flex items-center gap-1">
-                  <MapPin size={12} className="text-blue-600 dark:text-blue-400" /> {personal.location}
-                </span>
-                <span className="flex items-center gap-1">
-                  <LinkedinIcon size={12} className="text-blue-600 dark:text-blue-400" /> linkedin.com/in/{personal.linkedinUsername}
-                </span>
-                <span className="flex items-center gap-1">
-                  <GithubIcon size={12} className="text-blue-600 dark:text-blue-400" /> github.com/{personal.githubUsername}
-                </span>
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500 dark:text-slate-400 font-mono">
+                  <span className="flex items-center gap-1">
+                    <Phone size={12} className="text-blue-600 dark:text-blue-400" /> {personal.phone}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Mail size={12} className="text-blue-600 dark:text-blue-400" /> {personal.email}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <MapPin size={12} className="text-blue-600 dark:text-blue-400" /> {personal.location}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <LinkedinIcon size={12} className="text-blue-600 dark:text-blue-400" /> linkedin.com/in/{personal.linkedinUsername}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <GithubIcon size={12} className="text-blue-600 dark:text-blue-400" /> github.com/{personal.githubUsername}
+                  </span>
+                </div>
               </div>
+
+              {personal.avatarUrl && (
+                <div className="shrink-0 flex items-center justify-start sm:justify-end">
+                  <img
+                    src={personal.avatarUrl}
+                    alt={personal.name}
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border-2 border-slate-200 dark:border-slate-700 shadow-md print:w-20 print:h-20"
+                  />
+                </div>
+              )}
             </div>
 
             {/* Summary */}

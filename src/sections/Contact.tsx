@@ -122,8 +122,27 @@ export const Contact: React.FC = () => {
             className="lg:col-span-5 space-y-6"
           >
             <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
-              <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                <Sparkles size={16} className="text-blue-600 dark:text-blue-400" />
+              <div className="flex items-center gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
+                <div className="relative w-12 h-12 rounded-xl overflow-hidden ring-2 ring-blue-500/30 shrink-0 bg-slate-900">
+                  <img
+                    src={personal.avatarUrl}
+                    alt={personal.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border border-white dark:border-slate-900 rounded-full" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+                    {personal.name}
+                  </h4>
+                  <p className="text-xs font-mono text-emerald-600 dark:text-emerald-400">
+                    ● Typically responds within 24 hours
+                  </p>
+                </div>
+              </div>
+
+              <h3 className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                <Sparkles size={14} className="text-blue-600 dark:text-blue-400" />
                 <span>Verified Direct Channels</span>
               </h3>
 

@@ -12,7 +12,7 @@ interface AboutProps {
 }
 
 export const About: React.FC<AboutProps> = ({ onOpenResume }) => {
-  const { education, certifications } = PORTFOLIO_DATA;
+  const { personal, education, certifications } = PORTFOLIO_DATA;
   const primaryEdu = education[0]; // B.E. Computer Engineering
 
   return (
@@ -106,6 +106,52 @@ export const About: React.FC<AboutProps> = ({ onOpenResume }) => {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-5 space-y-4"
           >
+            {/* Professional Portrait Card */}
+            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-lg overflow-hidden relative group">
+              <div className="absolute top-0 right-0 -mr-10 -mt-10 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+              
+              <div className="flex items-center gap-4">
+                <div className="relative shrink-0">
+                  <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600 via-cyan-400 to-indigo-600 rounded-2xl blur-sm opacity-70 group-hover:opacity-100 transition duration-300" />
+                  <img
+                    src={personal.avatarUrl}
+                    alt={personal.name}
+                    className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top border-2 border-white dark:border-slate-800 shadow-md"
+                  />
+                  <span className="absolute -bottom-1 -right-1 px-1.5 py-0.5 bg-emerald-500 text-[10px] font-mono text-white rounded font-bold shadow-sm">
+                    ACTIVE
+                  </span>
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-blue-600 dark:text-blue-400 block font-semibold">
+                    Professional Profile
+                  </span>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white truncate">
+                    {personal.name}
+                  </h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                    {personal.role}
+                  </p>
+                  <p className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mt-1 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span>Open for Full-Time Roles</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2 text-center text-xs font-mono">
+                <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/60">
+                  <span className="text-slate-400 text-[10px] block">SPECIALTY</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">MERN Stack</span>
+                </div>
+                <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/60">
+                  <span className="text-slate-400 text-[10px] block">LOCATION</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">Pune, MH</span>
+                </div>
+              </div>
+            </div>
+
             {/* Primary Academic Card */}
             <div className="p-5 rounded-xl bg-gradient-to-br from-blue-50/80 via-white to-blue-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-blue-950/40 border border-blue-200 dark:border-blue-500/30 shadow-sm">
               <div className="flex items-center justify-between mb-3">

@@ -38,12 +38,36 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="lg:col-span-7 space-y-6"
           >
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-xs font-mono text-blue-600 dark:text-blue-400 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse" />
-              <span>{personal.statusBadge}</span>
-              <span className="text-slate-400 dark:text-slate-600">•</span>
-              <span className="text-slate-600 dark:text-slate-400">CGPA 8.56</span>
+            {/* Professional Profile Avatar & Status Badge */}
+            <div className="flex items-center gap-3.5 sm:gap-4">
+              <div className="relative group shrink-0">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 rounded-2xl blur-sm opacity-70 group-hover:opacity-100 transition duration-300" />
+                <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border-2 border-white dark:border-slate-800 shadow-lg bg-slate-900">
+                  <img
+                    src={personal.avatarUrl}
+                    alt={personal.name}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <span
+                  className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white dark:border-slate-900 rounded-full shadow-sm ring-2 ring-emerald-400/30 animate-pulse"
+                  title="Available for opportunities"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-xs font-mono text-blue-600 dark:text-blue-400 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse" />
+                  <span>{personal.statusBadge}</span>
+                  <span className="text-slate-400 dark:text-slate-600">•</span>
+                  <span className="text-slate-600 dark:text-slate-400">CGPA 8.56</span>
+                </div>
+                <div className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                  <span className="font-semibold text-slate-800 dark:text-slate-200">{personal.name}</span>
+                  <span>•</span>
+                  <span>{personal.location.split(',')[0]}, India</span>
+                </div>
+              </div>
             </div>
 
             {/* Main Headline */}

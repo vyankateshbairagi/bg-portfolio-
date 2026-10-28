@@ -71,8 +71,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             aria-label="Bhushan Gavhane Home"
             className="flex items-center gap-2.5 group focus:outline-none"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center font-bold text-white text-sm shadow-md shadow-blue-500/25 border border-blue-400/30 group-hover:scale-105 transition-transform duration-200">
-              {PORTFOLIO_DATA.personal.monogram}
+            <div className="relative w-9 h-9 rounded-xl overflow-hidden ring-2 ring-blue-500/40 shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-200 shrink-0 bg-gradient-to-br from-blue-600 to-indigo-700">
+              <img
+                src={PORTFOLIO_DATA.personal.avatarUrl}
+                alt={PORTFOLIO_DATA.personal.name}
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-sm tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
