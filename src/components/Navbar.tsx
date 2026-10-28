@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, FileText, ArrowRight } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolio';
+import { ThemeToggle } from './ThemeToggle';
 
 interface NavbarProps {
   onOpenResume: () => void;
@@ -55,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#07090e]/85 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-lg shadow-black/30'
+            ? 'bg-white/85 dark:bg-[#07090e]/85 backdrop-blur-md border-b border-slate-200/80 dark:border-white/[0.08] py-3.5 shadow-sm dark:shadow-lg dark:shadow-black/30'
             : 'bg-transparent py-5'
         }`}
       >
@@ -74,17 +75,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               {PORTFOLIO_DATA.personal.monogram}
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-sm tracking-tight text-slate-100 group-hover:text-blue-400 transition-colors">
+              <span className="font-bold text-sm tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 {PORTFOLIO_DATA.personal.name}
               </span>
-              <span className="text-[10px] font-mono text-slate-400">
+              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
                 Full-Stack Developer
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-white/[0.06] backdrop-blur-sm">
+          <nav className="hidden md:flex items-center gap-1 bg-slate-100/90 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-200/80 dark:border-white/[0.06] backdrop-blur-sm">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
               return (
@@ -97,8 +98,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                   }}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative ${
                     isActive
-                      ? 'text-white bg-blue-600/80 shadow-sm'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                      ? 'text-white bg-blue-600 shadow-sm'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/70 dark:hover:bg-slate-800/60'
                   }`}
                 >
                   {link.name}
@@ -108,13 +109,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           </nav>
 
           {/* Action CTAs */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2.5">
+            {/* Theme Toggle Button */}
+            <ThemeToggle />
+
             <button
               onClick={onOpenResume}
               type="button"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700/80 transition-colors shadow-sm"
             >
-              <FileText size={14} className="text-blue-400" />
+              <FileText size={14} className="text-blue-600 dark:text-blue-400" />
               <span>Resume</span>
             </button>
 
@@ -133,13 +137,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
           {/* Mobile Menu Toggle Button */}
           <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+
             <button
               onClick={onOpenResume}
               type="button"
               aria-label="View Resume"
-              className="p-2 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 text-xs flex items-center gap-1"
+              className="p-2 rounded-lg bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 text-xs flex items-center gap-1 shadow-sm"
             >
-              <FileText size={15} className="text-blue-400" />
+              <FileText size={15} className="text-blue-600 dark:text-blue-400" />
             </button>
 
             <button
@@ -147,7 +153,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               type="button"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
-              className="p-2 rounded-lg bg-slate-900 text-slate-300 hover:text-white border border-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-2 rounded-lg bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -157,11 +163,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-30 md:hidden pt-20 bg-slate-950/95 backdrop-blur-xl flex flex-col justify-between px-6 pb-8 border-b border-slate-800">
+        <div className="fixed inset-0 z-30 md:hidden pt-20 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl flex flex-col justify-between px-6 pb-8 border-b border-slate-200 dark:border-slate-800">
           <div className="space-y-2 mt-4">
-            <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block mb-2">
-              Navigation
-            </span>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block">
+                Navigation
+              </span>
+              <ThemeToggle showLabel={true} />
+            </div>
+
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
               return (
@@ -174,27 +184,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                   }}
                   className={`flex items-center justify-between py-3 px-4 rounded-xl text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-blue-600/20 text-blue-400 border border-blue-500/30'
-                      : 'text-slate-300 hover:bg-slate-900 hover:text-white'
+                      ? 'bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border border-blue-500/30'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
                   <span>{link.name}</span>
-                  <ArrowRight size={14} className="text-slate-500" />
+                  <ArrowRight size={14} className="text-slate-400 dark:text-slate-500" />
                 </a>
               );
             })}
           </div>
 
-          <div className="space-y-3 pt-6 border-t border-slate-800/80">
+          <div className="space-y-3 pt-6 border-t border-slate-200 dark:border-slate-800/80">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
               type="button"
-              className="w-full py-3 rounded-xl text-sm font-medium bg-slate-900 text-slate-200 border border-slate-800 flex items-center justify-center gap-2"
+              className="w-full py-3 rounded-xl text-sm font-medium bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 flex items-center justify-center gap-2 shadow-sm"
             >
-              <FileText size={16} className="text-blue-400" />
+              <FileText size={16} className="text-blue-600 dark:text-blue-400" />
               <span>View & Download Resume</span>
             </button>
 

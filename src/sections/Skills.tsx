@@ -7,7 +7,7 @@ export const Skills: React.FC = () => {
   const { skillGroups } = PORTFOLIO_DATA;
 
   return (
-    <section id="skills" className="py-20 sm:py-28 relative bg-[#06080d]/60">
+    <section id="skills" className="py-20 sm:py-28 relative bg-slate-100/60 dark:bg-[#06080d]/60 transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Technical Toolkit"
@@ -27,14 +27,14 @@ export const Skills: React.FC = () => {
         </div>
 
         {/* Note on Software Engineering Standards */}
-        <div className="mt-12 p-4 rounded-xl bg-slate-900/30 border border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-400">
+        <div className="mt-12 p-4 rounded-xl bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800/80 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400" />
             <span>
               All competencies reflect coursework at Sinhgad Institute of Technology and verified projects.
             </span>
           </div>
-          <span className="font-mono text-slate-500">
+          <span className="font-mono text-slate-400 dark:text-slate-500">
             No subjective percentages • Factual stack overview
           </span>
         </div>

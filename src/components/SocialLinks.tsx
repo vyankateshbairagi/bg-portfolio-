@@ -43,7 +43,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub Profile (bhushan0919)"
-        className={`inline-flex items-center gap-2 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/40 hover:bg-slate-800/80 transition-all duration-200 ${buttonPadding[size]}`}
+        className={`inline-flex items-center gap-2 rounded-lg bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-blue-400 dark:hover:border-blue-500/40 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all duration-200 shadow-sm ${buttonPadding[size]}`}
       >
         <GithubIcon size={iconSizes[size]} />
         {showLabels && <span>GitHub</span>}
@@ -54,7 +54,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn Profile (bhushan-gavhane)"
-        className={`inline-flex items-center gap-2 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/40 hover:bg-slate-800/80 transition-all duration-200 ${buttonPadding[size]}`}
+        className={`inline-flex items-center gap-2 rounded-lg bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-blue-400 dark:hover:border-blue-500/40 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all duration-200 shadow-sm ${buttonPadding[size]}`}
       >
         <LinkedinIcon size={iconSizes[size]} />
         {showLabels && <span>LinkedIn</span>}
@@ -63,7 +63,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
       <a
         href={`mailto:${email}`}
         aria-label={`Send email to ${email}`}
-        className={`inline-flex items-center gap-2 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/40 hover:bg-slate-800/80 transition-all duration-200 ${buttonPadding[size]}`}
+        className={`inline-flex items-center gap-2 rounded-lg bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-blue-400 dark:hover:border-blue-500/40 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all duration-200 shadow-sm ${buttonPadding[size]}`}
       >
         <Mail size={iconSizes[size]} />
         {showLabels && <span>Email</span>}
@@ -72,7 +72,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
       <a
         href={`tel:${phone.replace(/\s+/g, '')}`}
         aria-label={`Call ${phone}`}
-        className={`inline-flex items-center gap-2 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/40 hover:bg-slate-800/80 transition-all duration-200 ${buttonPadding[size]}`}
+        className={`inline-flex items-center gap-2 rounded-lg bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-blue-400 dark:hover:border-blue-500/40 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all duration-200 shadow-sm ${buttonPadding[size]}`}
       >
         <Phone size={iconSizes[size]} />
         {showLabels && <span>Call</span>}
@@ -84,12 +84,12 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
         type="button"
         title="Copy email to clipboard"
         aria-label="Copy email address"
-        className={`inline-flex items-center gap-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 transition-all duration-200 ${buttonPadding[size]}`}
+        className={`inline-flex items-center gap-1.5 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-500/20 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-200 shadow-sm ${buttonPadding[size]}`}
       >
         {copiedEmail ? (
           <>
-            <Check size={iconSizes[size]} className="text-emerald-400" />
-            <span className="text-emerald-400 font-mono text-xs">Copied!</span>
+            <Check size={iconSizes[size]} className="text-emerald-500 dark:text-emerald-400" />
+            <span className="text-emerald-600 dark:text-emerald-400 font-mono text-xs">Copied!</span>
           </>
         ) : (
           <>

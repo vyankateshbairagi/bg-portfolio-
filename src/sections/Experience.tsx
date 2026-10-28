@@ -7,7 +7,7 @@ export const Experience: React.FC = () => {
   const { experience } = PORTFOLIO_DATA;
 
   return (
-    <section id="experience" className="py-20 sm:py-28 relative bg-[#06080d]/60">
+    <section id="experience" className="py-20 sm:py-28 relative bg-slate-100/60 dark:bg-[#06080d]/60 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Professional Timeline"
